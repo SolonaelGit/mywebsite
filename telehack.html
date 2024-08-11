@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description"content="Telehack is a simulation of a stylized arpanet/usenet, circa 1985-1990. It is a full multi-user simulation, including over 26,600 simulated hosts from the early net, thousands of files from the era, a collection of adventure and IF games, a working BASIC interpreter with a library of programs to run, simulated historical users, and more."><style>@font-face{font-family:'Wumpus Mono';src:url(WumpusMono-Regular.woff2) format( 'woff2' ),url(WumpusMono-Regular.woff) format( 'woff' )}body,html{height:100%;margin:0}body{background:#000}a,pre{font-family:"Wumpus Mono",courier-new,courier,monospace;font-size:15px;color:#0f0;text-decoration:none}a:hover{text-decoration:underline}</style><title>Telehack</title><link rel="stylesheet"href="xterm.css"><script src="xterm.js"></script></head><body><script>const n=new WebSocket(window.location.protocol.replace("http","ws")+"//"+window.location.host);n.sendOptions=async function(o){for(;0===this.readyState;)await new Promise(o=>setTimeout(o,1));this.send(new Uint8Array(o))};var o=new AttachAddon.AttachAddon(n);const t=new FitAddon.FitAddon;var e=new WebLinksAddon.WebLinksAddon,d=new LigaturesAddon.LigaturesAddon,i=new Terminal({fontFamily:"Wumpus Mono, monospace",letterSpacing:0,allowProposedApi:!0,cursorBlink:!0,macOptionIsMeta:!0,theme:{cursor:"#0f0",foreground:"#0f0"}});i.loadAddon(o),i.loadAddon(t),i.loadAddon(e),i.open(document.body),i.loadAddon(d),i.focus(),i.onBell(function(o){new Audio("bell.wav").play()}),i.onResize(function(o){n.sendOptions([255,250,31,Math.floor(o.cols/256),o.cols%256,Math.floor(o.rows/256),o.rows%256,255,240])}),t.fit(),window.addEventListener("resize",function(o){t.fit()},!0),n.sendOptions([255,250,24,0].concat(i.options.termName.split("").map(function(o){return o.charCodeAt()})).concat([255,240]))</script><noscript><pre>
+
+  Enable JavaScript to access the web interface.
+
+  Or, open a shell and connect via telnet by typing
+
+      <a href="telnet://telehack.com">telnet telehack.com</a>
+
+  Or, open a shell and connect via secure shell (SSH) by typing
+
+      <a href="ssh://guest@telehack.com:2222">ssh -p 2222 guest@telehack.com</a>
+
+  Read more at <a href="telehack.html">https://telehack.com/telehack.html</a>
+
+</pre></noscript></body></html>
